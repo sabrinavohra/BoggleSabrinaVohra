@@ -3,9 +3,10 @@ import java.util.Arrays;
 import java.util.Stack;
 
 public class Boggle {
+    private static Boolean[][] searched;
+    private static Trie words;
 
     public static String[] findWords(char[][] board, String[] dictionary) {
-
         ArrayList<String> goodWords = new ArrayList<String>();
 
         // TODO: Complete the function findWords(). Add all words that are found both on the board
@@ -13,8 +14,8 @@ public class Boggle {
 
         // Create a boolean array that holds the information of whether a spot has been searched
         // Sort all dictionary words into a Trie
-        Boolean[][] searched = new Boolean[board.length][board[0].length];
-        Trie words = new Trie();
+        searched = new Boolean[board.length][board[0].length];
+        words = new Trie();
         for(int i = 0; i < dictionary.length; i++) {
             words.insert(dictionary[i]);
         }
@@ -39,7 +40,13 @@ public class Boggle {
         return sol;
     }
 
-    public static String dfs () {
-
+    public static void dfs (int row, int col, String prefix) {
+        if(searched[row][col]) {
+            return;
+        }
+        if(!words.lookup(prefix)) {
+            return;
+        }
+        searched[row][col] = true;
     }
 }
