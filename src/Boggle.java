@@ -14,11 +14,9 @@ public class Boggle {
         // Create a boolean array that holds the information of whether a spot has been searched
         // Sort all dictionary words into a Trie
         Boolean[][] searched = new Boolean[board.length][board[0].length];
-        Stack<Character> trie = new Stack<>();
+        Trie words = new Trie();
         for(int i = 0; i < dictionary.length; i++) {
-            for(int j = 0; j < dictionary[i].length(); i++) {
-                trie.push(dictionary[i].charAt(j));
-            }
+            words.insert(dictionary[i]);
         }
 
         // Start the search from a designated spot [0,0] on the board
@@ -39,5 +37,9 @@ public class Boggle {
         goodWords.toArray(sol);
         Arrays.sort(sol);
         return sol;
+    }
+
+    public static String dfs () {
+
     }
 }
