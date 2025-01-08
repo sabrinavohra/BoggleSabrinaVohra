@@ -20,18 +20,13 @@ public class Boggle {
             words.insert(dictionary[i]);
         }
 
-        // Start the search from a designated spot [0,0] on the board
-            // Move through each letter to look for word in the Trie
-            // Once the spot has been searched:
-                // Update the boolean array
-            // If match is not found:
-                // Go to different part of board (using DFS)
-            // If word ends:
-                // Make sure word is not already in goodWords ArrayList (checking for duplicates)
-                // Add to goodWords
 
-        // Need to make a new Object like in MazeSolver??
+        for(int i = 0; i < board.length; i++) {
+            for(int j = 0; j < board[0].length; j++) {
+                dfs(i, j, "", board);
 
+            }
+        }
 
         // Convert the list into a sorted array of strings, then return the array.
         String[] sol = new String[goodWords.size()];
@@ -40,7 +35,7 @@ public class Boggle {
         return sol;
     }
 
-    public static void dfs (int row, int col, String prefix) {
+    public static void dfs (int row, int col, String prefix, char[][] board) {
         if(searched[row][col]) {
             return;
         }
@@ -48,5 +43,13 @@ public class Boggle {
             return;
         }
         searched[row][col] = true;
+
+        String nextPrefix = prefix + board[row][col];
+        dfs(row + 1, col, nextPrefix, board);
+        dfs(row - 1, col, nextPrefix, board);
+        dfs(row, col + 1, nextPrefix, board);
+        dfs(row, col - 1, nextPrefix, board);
+
+        searched[row][col] = false;
     }
 }
