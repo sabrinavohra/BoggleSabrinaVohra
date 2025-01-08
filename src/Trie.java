@@ -42,6 +42,17 @@ public class Trie {
         return current.isWord();
     }
 
+    boolean lookup2 (String s) {
+        Node current = root;
+        for(int i = 0; i < s.length(); i++) {
+            int j = s.charAt(i);
+            if(current.next[j] == null) {
+                return false;
+            }
+            current = current.next[j];
+        }
+        return true;
+    }
     // Prints out trie for debugging purposes
     void printTrie () {
         System.out.println(Arrays.toString(root.getNext()));
