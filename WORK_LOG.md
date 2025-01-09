@@ -10,6 +10,7 @@ Name: Sabrina Vohra
 | 1/7  |  2:45 - 3:00pm   |                                                                                                                                              I started coding the test cases for the dfs method. |
 | 1/7  | 10:40 - 10:50pm  | I wrote a basic version of DFS by looking at the psuedocode. I haven't yet figured out how to keep track of the words that are found in the method dfs and return those back to the main method. |
 | 1/7  | 10:50 - 11:05pm  |                                                                   I continued debugging and was able to solve some smaller errors. The code runs but does not have the correct solution lengths. |
+| 1/9  |  1:00 - 1:45pm   |                                                                                                                                   I continued working through the code to find where the bug is. |
 
 
 To add a new row to the table, click into a cell and then hit shift-enter.

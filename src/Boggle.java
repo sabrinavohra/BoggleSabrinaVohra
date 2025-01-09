@@ -8,7 +8,7 @@ public class Boggle {
     private static ArrayList<String> goodWords;
 
     public static String[] findWords(char[][] board, String[] dictionary) {
-        goodWords = new ArrayList<String>();
+        goodWords = new ArrayList<>();
         // TODO: Complete the function findWords(). Add all words that are found both on the board
         //  and in the dictionary.
 
