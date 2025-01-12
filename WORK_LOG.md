@@ -11,6 +11,7 @@ Name: Sabrina Vohra
 | 1/7  | 10:40 - 10:50pm  | I wrote a basic version of DFS by looking at the psuedocode. I haven't yet figured out how to keep track of the words that are found in the method dfs and return those back to the main method. |
 | 1/7  | 10:50 - 11:05pm  |                                                                   I continued debugging and was able to solve some smaller errors. The code runs but does not have the correct solution lengths. |
 | 1/9  |  1:00 - 1:45pm   |                                                                                                                                   I continued working through the code to find where the bug is. |
+| 1/12 |  12:55 - 1:20pm  |                                            I debugged and was able to find the solution for 4/6 test cases. I had made an error with the lookup method I used to find correct words in the trie. |
 
 
 To add a new row to the table, click into a cell and then hit shift-enter.

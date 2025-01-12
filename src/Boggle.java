@@ -6,6 +6,7 @@ public class Boggle {
     private static Boolean[][] searched;
     private static Trie words;
     private static ArrayList<String> goodWords;
+    private static String currentWord;
 
     public static String[] findWords(char[][] board, String[] dictionary) {
         goodWords = new ArrayList<>();
@@ -25,7 +26,7 @@ public class Boggle {
         for(int i = 0; i < dictionary.length; i++) {
             words.insert(dictionary[i]);
         }
-
+        currentWord = "";
         for(int i = 0; i < board.length; i++) {
             for(int j = 0; j < board[0].length; j++) {
                 dfs(i, j, "", board);
@@ -53,15 +54,16 @@ public class Boggle {
 
         searched[row][col] = true;
 
+        if(!goodWords.contains(prefix) && words.lookup(prefix)) {
+            goodWords.add(prefix);
+        }
+
         String nextPrefix = prefix + board[row][col];
         dfs(row + 1, col, nextPrefix, board);
         dfs(row - 1, col, nextPrefix, board);
         dfs(row, col + 1, nextPrefix, board);
         dfs(row, col - 1, nextPrefix, board);
 
-        if(!goodWords.contains(prefix)) {
-            goodWords.add(prefix);
-        }
         searched[row][col] = false;
     }
 }

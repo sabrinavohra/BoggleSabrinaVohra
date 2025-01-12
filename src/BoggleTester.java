@@ -1,3 +1,4 @@
+
 import org.junit.Test;
 import org.junit.jupiter.api.Timeout;
 import java.io.BufferedReader;
@@ -66,7 +67,7 @@ public class BoggleTester {
             // Check for matching Strings
             for (int i = 0; i < answer.length; i++)
                 assertEquals(answer[i], sol[i],
-                    "Test " + testNumber + " failed. Check test files for solution.");
+                        "Test " + testNumber + " failed. Check test files for solution.");
 
         } catch (IOException e) {
             System.out.println("Error opening test file #" + testNumber);
