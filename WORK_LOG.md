@@ -13,6 +13,7 @@ Name: Sabrina Vohra
 | 1/9  |  1:00 - 1:45pm   |                                                                                                                                   I continued working through the code to find where the bug is. |
 | 1/12 |  12:55 - 1:20pm  |                                            I debugged and was able to find the solution for 4/6 test cases. I had made an error with the lookup method I used to find correct words in the trie. |
 | 1/13 | 10:25 - 10:35am  |                                                                                                                                                                                I wrote comments. |
+| 1/13 |     10:35 -      |                                                                                                                                                                                                  |
 
 
 To add a new row to the table, click into a cell and then hit shift-enter.

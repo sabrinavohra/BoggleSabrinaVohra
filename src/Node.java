@@ -1,5 +1,5 @@
 public class Node {
-    public static final int NUM_CHARS = 256;
+    public static final int NUM_CHARS = 125;
     private boolean isWord = false;
     public Node[] next = new Node[NUM_CHARS];
 

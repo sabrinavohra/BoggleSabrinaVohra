@@ -42,6 +42,7 @@ public class Trie {
         return current.isWord();
     }
 
+    // Method checks to see if the prefix exists in the trie; uses similar algorithm to lookup()
     boolean lookup2 (String s) {
         Node current = root;
         for(int i = 0; i < s.length(); i++) {
