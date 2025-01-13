@@ -7,6 +7,7 @@ public class Boggle {
     private static Trie words;
     private static ArrayList<String> goodWords;
 
+    // Finds number of words that exist in both the board and the dictionary
     public static String[] findWords(char[][] board, String[] dictionary) {
         goodWords = new ArrayList<>();
 
@@ -38,7 +39,7 @@ public class Boggle {
         return sol;
     }
 
-    // Does depth first search to find all words that appear in the board and dictionary
+    // Does depth first search
     public static void dfs (int row, int col, String prefix, char[][] board) {
         // Makes sure spot is valid and on the board
         if(row < 0 || col < 0 || row >= board.length || col >= board[0].length) {
