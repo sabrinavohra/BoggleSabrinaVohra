@@ -3,7 +3,7 @@ import java.util.Arrays;
 import java.util.Stack;
 
 public class Boggle {
-    private static Boolean[][] searched;
+    private static boolean[][] searched;
     private static Trie words;
     private static ArrayList<String> goodWords;
 
@@ -12,12 +12,7 @@ public class Boggle {
         goodWords = new ArrayList<>();
 
         // Creates array the same size as board to track whether the spot has been searched and fills with false
-        searched = new Boolean[board.length][board[0].length];
-        for(int i = 0; i < searched.length; i++) {
-            for(int j = 0; j < searched[0].length; j++) {
-                searched[i][j] = false;
-            }
-        }
+        searched = new boolean[board.length][board[0].length];
 
         // Adds all words in the dictionary into a trie
         words = new Trie();
