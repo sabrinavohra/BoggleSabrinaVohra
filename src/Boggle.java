@@ -10,11 +10,8 @@ public class Boggle {
 
     public static String[] findWords(char[][] board, String[] dictionary) {
         goodWords = new ArrayList<>();
-        // TODO: Complete the function findWords(). Add all words that are found both on the board
-        //  and in the dictionary.
 
-        // Create a boolean array that holds the information of whether a spot has been searched
-        // Sort all dictionary words into a Trie
+        // Creates array the same size as board to track whether the spot has been searched and fills with false
         searched = new Boolean[board.length][board[0].length];
         for(int i = 0; i < searched.length; i++) {
             for(int j = 0; j < searched[0].length; j++) {
@@ -22,11 +19,12 @@ public class Boggle {
             }
         }
 
+        // Adds all words in the dictionary into a trie
         words = new Trie();
-        for(int i = 0; i < dictionary.length; i++) {
-            words.insert(dictionary[i]);
+        for(String word: dictionary) {
+            words.insert(word);
         }
-        currentWord = "";
+
         for(int i = 0; i < board.length; i++) {
             for(int j = 0; j < board[0].length; j++) {
                 dfs(i, j, "", board);
@@ -40,30 +38,37 @@ public class Boggle {
         return sol;
     }
 
+    // Does depth first search to find all words that appear in the board and dictionary
     public static void dfs (int row, int col, String prefix, char[][] board) {
+        // Makes sure spot is valid and on the board
         if(row < 0 || col < 0 || row >= board.length || col >= board[0].length) {
             return;
         }
+        // Makes sure spot has not been searched
         if(searched[row][col]) {
             return;
         }
-        // How to check if prefix is valid?
+
+        // Makes sure prefix leads to words
         if(!words.lookup2(prefix)) {
             return;
         }
 
         searched[row][col] = true;
-
+        // Adds word to list of good words if the word is not already in the list and if the word is a valid word in
+        // the dictionary
         if(!goodWords.contains(prefix) && words.lookup(prefix)) {
             goodWords.add(prefix);
         }
 
+        // Recurses for al nearby spots
         String nextPrefix = prefix + board[row][col];
         dfs(row + 1, col, nextPrefix, board);
         dfs(row - 1, col, nextPrefix, board);
         dfs(row, col + 1, nextPrefix, board);
         dfs(row, col - 1, nextPrefix, board);
 
+        // Sets spot to false so it can be searched later
         searched[row][col] = false;
     }
 }
